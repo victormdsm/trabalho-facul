@@ -1,5 +1,6 @@
 package com.roupas.lojaderoupas.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,6 +23,7 @@ public class Produto {
     private String descricao;
     private BigDecimal preco;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "produtos")
     private List<Venda> vendas;
 }

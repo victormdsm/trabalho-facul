@@ -21,6 +21,4 @@ public class EnderecoFuncionario {
     private String Bairro;
     private String cidade;
 
-    @OneToOne(mappedBy = "endereco")
-    private Funcionario funcionario;
 }
