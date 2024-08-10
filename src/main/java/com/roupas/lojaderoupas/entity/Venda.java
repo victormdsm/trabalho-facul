@@ -3,6 +3,7 @@ package com.roupas.lojaderoupas.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,7 @@ public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private BigDecimal total;
 
     @ManyToOne
     private Cliente cliente;

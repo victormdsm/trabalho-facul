@@ -18,6 +18,7 @@ public class ClienteController {
     @Autowired
     ClienteService clienteService;
 
+
     @PostMapping("/save")
     @Transactional
     public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
@@ -64,6 +65,16 @@ public class ClienteController {
     public ResponseEntity<Optional<Cliente>> findById(@PathVariable Long id) {
         try {
             var cliente = clienteService.findById(id);
+            return new ResponseEntity<>(cliente, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
+
+    @GetMapping("/idade")
+    public ResponseEntity<List<Cliente>> findByIdade(@RequestParam Integer minIdade, @RequestParam Integer maxIdade) {
+        try {
+            var cliente = clienteService.findByIdadeBetween(minIdade, maxIdade);
             return new ResponseEntity<>(cliente, HttpStatus.OK);
         } catch (Exception e) {
             throw new RuntimeException();

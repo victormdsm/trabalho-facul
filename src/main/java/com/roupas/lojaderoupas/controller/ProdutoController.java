@@ -70,4 +70,14 @@ public class ProdutoController {
             throw new RuntimeException();
         }
     }
+
+    @GetMapping("/findtop10")
+    public ResponseEntity<List<Produto>> findTop10() {
+        try {
+            var produto = produtoService.findTo10Preco();
+            return new ResponseEntity<>(produto, HttpStatus.OK);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+    }
 }

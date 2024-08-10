@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class VendaService {
+public class
+VendaService {
 
     @Autowired
     private VendaRepository vendaRepository;
@@ -40,5 +41,17 @@ public class VendaService {
 
     public List<Venda> findAll() {
         return vendaRepository.findAll();
+    }
+
+    public List<Venda> findByClienteNome(String nome) {
+        return vendaRepository.findByCliente_NomeContainingIgnoreCase(nome);
+    }
+
+    public List<Venda> findByFuncionarioNome(String nome) {
+        return vendaRepository.findByFuncionario_NomeContainingIgnoreCase(nome);
+    }
+
+    public List<Venda> findTop10Price() {
+        return vendaRepository.findTop10ByOrderByTotalDesc();
     }
 }

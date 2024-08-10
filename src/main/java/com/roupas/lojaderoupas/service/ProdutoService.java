@@ -41,4 +41,8 @@ public class ProdutoService {
     public List<Produto> findAll() {
         return produtoRepository.findAll();
     }
+
+    public List<Produto> findTo10Preco () {
+        return produtoRepository.findTop10ByOrderByPrecoDesc();
+    }
 }

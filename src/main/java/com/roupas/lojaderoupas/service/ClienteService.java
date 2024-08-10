@@ -39,4 +39,9 @@ public class ClienteService {
     public void delete(Long id) {
         clienteRepository.deleteById(id);
     }
+
+    public List<Cliente> findByIdadeBetween(Integer minIdade, Integer maxIdade){
+        return clienteRepository.findByIdadeBetween(minIdade, maxIdade);
+    }
+
 }
